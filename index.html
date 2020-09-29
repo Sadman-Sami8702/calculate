@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CALCULATOR</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="abc.css">
+<link rel="shortcut icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+
+                 <link rel="stylesheet" type="text/css" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+                <link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+</head>
+<body>
+    <a href="indexbmi.html">BMI Calculator</a>
+    <a href="inderbmr.html">BMR Calculator</a>
+    <script type="text/javascript">
+       const buttons = document.querySelectorAll('a');
+       buttons.forEach(btn =>{
+           btn.addEventListener('click',function(e){
+               Let x = e.clientX = e.target.offsetLeft;
+               Let y = e.clientY = e.target.offsetTop;
+
+               Let ripples = document.createElement('span');
+               ripples.style.left = x + 'px' ;
+               ripples.style.top = y + 'px';
+               this.appendChild(ripples);
+
+               setTimeout(()=>{
+                   ripples.remove()
+               },1000);
+           })
+       })
+    
+    </script>
+    </div>
+</body>
+</html>

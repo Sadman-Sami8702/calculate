@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMI Calculator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="stylebmi.css">
+<link rel="shortcut icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+
+                 <link rel="stylesheet" type="text/css" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+                <link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" /></head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center"><strong>BMI CALCULATOR</strong></div>
+        <div class="card-body">
+            <form onsubmit="return false">
+                <div class="form-group">
+                    <label> Weight </label>
+                    <input type="text" name="" id="weight" class="form-control" placeholder="Weight in kg" required>
+                </div>
+                <div class="form-group">
+                    <label> Height in ft</label>
+                    <input type="text" name="" id="height" class="form-control" placeholder="If your are 5 ft 3 inch, then write only 5" required>
+                </div>
+                <button type="button" class="collapsible">How to calculate & input your height in ft.</button>
+                    <div class="content">
+                      <p>(y Ft 0 Inch = y.00) <br/>
+                          (y Ft 1 inch = y.083) <br/>
+                          (y Ft 2 inch = y.167)<br/>
+                          (y Ft 3 inch = y.25)<br/>
+                          (y Ft 4 inch = y.33)<br/>
+                          (y Ft 5 inch = y.4167)<br/>
+                          (y Ft 6 inch = y.5)<br/>
+                          (y Ft 7 inch = y.583)<br/>
+                          (y Ft 8 inch = y.67)<br/>
+                          (y Ft 9 inch = y.75)<br/>
+                          (y Ft 10 inch = y.83)<br/>
+                          (y Ft 11 inch = y.9167)<br/>
+                          y যেকোনো ধনাত্বক পূর্ণসংখ্যা হতে পারে ।
+                      </p>
+                    </div>
+                <p>
+                  <div>
+                    <button type="submit" class="btn btn-success" onclick="getbmivalue()">Check BMI</button> 
+                  </div>
+                </p>
+                <div class="form-group">
+                    <label><strong>BMI VALUE :</strong></label>
+                    <input type="text" name="" id="bmi value" class="form-control" placeholder=""> 
+                </div>
+                
+                <table>
+                    <tr>
+                      <th>বিএমআই মান</th>
+                      <th>করণীয় </th>
+                      
+                    </tr>
+                    <tr>
+                      <td>18.5 এর নিচে</td>
+                      <td>শরীরের ওজন কম । পরিমিত খাদ্যগ্রহণ করে ওজন বাড়াতে হবে ।</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>18.5 থেকে 24.9</td>
+                      <td>সুস্বাস্থ্যের আদর্শ মান । </td>
+                     
+                    </tr>
+                    <tr>
+                      <td>25 থেকে 29.9</td>
+                      <td>শরীরের ওজন অতিরিক্ত । ব্যায়াম করে অতিরিক্ত ওজন কমাতে হবে । </td>
+                      
+                    </tr>
+                    <tr>
+                      <td>30 থেকে 34.9</td>
+                      <td>মোটা হওয়ার প্রথম স্তর । বেছে খাদ্যগ্রহণ ও ব্যায়াম করা প্রয়োজন ।</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>35 থেকে 39.9</td>
+                      <td>মোটা হওয়ার দ্বিতীয় স্তর । পরিমিত খাদ্যগ্রহণ ও ব্যায়াম করা প্রয়োজন ।</td>
+                    
+                    </tr>
+                    <tr>
+                      <td>40 এর উপরে</td>
+                      <td>অতিরিক্ত মোটাত্ব । মৃত্যুঝুঁকির আশঙ্কা । ডাক্তারের পরামর্শ প্রয়োজন । </td>
+                    
+                    </tr>
+                  </table>
+
+                
+
+            </form>
+        </div>
+        <div class="card-footer text-center">&copy; Sadman Sami <br> Built with ❤️ by Sadman Sami.</div>
+    </div>
+</div>
+
+
+
+<script>
+    function getbmivalue(){
+        var weight = document.getElementById('weight').value ;
+        var height = document.getElementById('height').value;
+
+        
+        height = height * 0.3048;
+
+        var newbmivalue = weight / (height * height);
+
+        newbmivalue = (Math.round(newbmivalue * 100) / 100).toFixed(2);
+        
+        document.getElementById('bmi value').value = newbmivalue;
+
+
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pooper.js/1.14.6/umd/pooper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</body>
+</html>

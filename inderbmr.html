@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMR Calculator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="stylebmr.css">
+<link rel="shortcut icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+
+                 <link rel="stylesheet" type="text/css" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+                <link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://d26tpo4cm8sb6k.cloudfront.net/icon-32x32.png" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><strong>BMR Calculator</strong></div>
+            <div class="card-body">
+                <form onsubmit="return false">
+                    <div class="form-group">
+                        <label> Weight </label>
+                        <input type="text" name="weight" id="weight" class="form-control" placeholder="Weight in kg" required>
+                    </div>
+                    <div class="form-group">
+                        <label> Height </label>
+                        <input type="text" name="height" id="height" class="form-control" placeholder="Height in cm. (1 ft = 30.48 cm & 1 inch = 2.54 cm.)" required>
+                         
+                    </div>
+                    <div class="form-group">
+                        <label> Age </label>
+                        <input type="text" name="age" id="age" class="form-control" placeholder="Age in years" required>
+                    </div>
+                    <div>
+                        <label> Gender</label> <br/>
+                        <select id="gender" class="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <p>
+                        <div>
+                            <label> Physical Condition</label> <br/>
+                            <select id="condition" class="condition">
+                                <option>Not Working </option>
+                                <option>Light Working, playing 2-3 days in a week</option>
+                                <option>Working, Sufficient playing 2-3 days in a week</option>
+                                <option>Working, Playing everyday in a week</option>
+                                <option>Hard working, Sufficient jumping, running and playing</option>
+                            </select>
+                        </div>
+                    </p>
+                    <div>
+                        <button type="submit" id="button" class="btn btn-success" onclick="getbmivalue()">Calculate your BMR</button> <br/>
+                      </div>
+                      <p>
+                        <div class="form-group">
+                            <label><strong>YOUR BMR VALUE (in Calorie) </strong></label>
+                            <input type="text" name="" id="bmr value" class="form-control" placeholder=""> 
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Calorie Demand Per Day </strong></label>
+                            <input type="text" name="" id="bmr-value" class="form-control" placeholder=""> 
+                        </div>
+                      </p>
+                </form>
+            </div>
+            <div class="card-footer text-center">&copy; Sadman Sami <br> Built with ❤️ by Sadman Sami.</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function getbmivalue(){
+        var weight = document.getElementById('weight').value;
+        var height = document.getElementById('height').value;
+        var age = document.getElementById('age').value;
+        var gender = document.getElementById('gender').value;
+        var bmr;
+        if ( gender == 'Male') {
+            bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);
+        } else {
+            bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
+        }
+
+        bmr = (Math.round(bmr * 100) / 100).toFixed(2);
+        
+        document.getElementById('bmr value').value = bmr;
+
+
+         var condition = document.getElementById('condition').value;
+
+         if( condition == 'Not Working') {
+             condition = bmr * 1.2;
+         } else if (condition == 'Light Working, playing 2-3 days in a week') {
+             condition = bmr * 1.375;
+         } else if (condition == 'Working, Sufficient playing 2-3 days in a week') {
+             condition = bmr * 1.55;
+         } else if ( condition == 'Working, Playing everyday in a week') {
+             condition = bmr * 1.725;
+         } else {
+             condition = bmr * 1.9;
+         }
+
+         condition = (Math.round(condition * 100) / 100).toFixed(2);
+         document.getElementById('bmr-value').value = condition;
+
+         
+
+    }
+
+</script>
+</html>
