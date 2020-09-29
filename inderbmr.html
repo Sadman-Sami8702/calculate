@@ -24,8 +24,15 @@
                     </div>
                     <div class="form-group">
                         <label> Height </label>
-                        <input type="text" name="height" id="height" class="form-control" placeholder="Height in cm. (1 ft = 30.48 cm & 1 inch = 2.54 cm.)" required>
+                        <input type="text" name="height" id="height" class="form-control" placeholder="Read The Instructions Below" required>
                          
+                    </div>
+                    <button type="button" class="collapsible">How to calculate your height in cm</button>
+                    <div class="content text-center">
+                        <p>
+                            <br/>1 ft = 30.48 cm &
+                            1 inch = 2.54 cm
+                        </p>
                     </div>
                     <div class="form-group">
                         <label> Age </label>
@@ -108,6 +115,20 @@
          
 
     }
+    var coll = document.getElementsByClassName("collapsible");
+var i;
 
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </script>
 </html>
